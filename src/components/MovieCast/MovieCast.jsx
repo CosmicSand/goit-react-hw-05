@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 import { creditsRequest } from "../../requests";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ActorCard from "../ActorCard/ActorCard";
@@ -7,16 +7,16 @@ import Loader from "../Loader/Loader";
 import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
-  const location = useLocation();
   const [actors, setActors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorObj, setErrorObj] = useState(null);
-  const movieID = location.state.id;
+  const { movieId } = useParams();
+
   useEffect(() => {
     async function castRequest() {
       try {
         setIsLoading(true);
-        const response = await creditsRequest(movieID);
+        const response = await creditsRequest(movieId);
         if (response.length === 0) {
           throw new Error("No actor's list available.");
         }
@@ -29,7 +29,7 @@ export default function MovieCast() {
     }
 
     castRequest();
-  }, [movieID]);
+  }, [movieId]);
 
   return (
     <>

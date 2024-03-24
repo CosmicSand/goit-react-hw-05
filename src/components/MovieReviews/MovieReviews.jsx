@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { reviewsRequest } from "../../requests";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import Loader from "../Loader/Loader";
@@ -7,17 +7,17 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import css from "./MovieReviews.module.css";
 
 export default function MovieReviews() {
-  const location = useLocation();
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorObj, setErrorObj] = useState(null);
-  const movieID = useRef(location.state.id);
+  const { movieId } = useParams();
+
   useEffect(() => {
     async function castRequest() {
       try {
         setIsLoading(true);
         setErrorObj(null);
-        const response = await reviewsRequest(movieID.current);
+        const response = await reviewsRequest(movieId);
 
         if (response.length === 0) {
           throw new Error("No reviews left.");
@@ -31,7 +31,7 @@ export default function MovieReviews() {
     }
 
     castRequest();
-  }, [movieID]);
+  }, [movieId]);
 
   return (
     <>
