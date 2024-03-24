@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { searchRequest } from "../requests";
-import MoviesList from "../components/MoviesList/MoviesList";
+import MovieList from "../components/MoviesList/MoviesList";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 import Filter from "../components/Filter/Filter";
@@ -45,7 +45,7 @@ export default function MoviesPage() {
       <Filter submit={titleSetting} />
       {isLoading && <Loader />}
       {errorObj && <ErrorMessage />}
-      {!isLoading && !errorObj && <MoviesList moviesArray={movies} />}
+      {!isLoading && !errorObj && <MovieList moviesArray={movies} />}
     </main>
   );
 }
