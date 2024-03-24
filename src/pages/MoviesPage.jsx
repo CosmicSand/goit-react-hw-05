@@ -24,10 +24,11 @@ export default function MoviesPage() {
         const title = params.get("query");
         setIsLoading(true);
         const response = await searchRequest(title);
-        setMovies(response);
+
         if (response.length === 0) {
           throw new Error("Nothing found!");
         }
+        setMovies(response);
       } catch (error) {
         console.log(error);
         setErrorObj(error);
