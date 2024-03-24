@@ -16,7 +16,10 @@ export async function movieInfoRequest(movieId) {
 
 export async function creditsRequest(movieId) {
   const resp = await axios(`/movie/${movieId}/credits`);
-  return resp.data.cast.filter((actor) => actor.profile_path);
+  console.log(resp.data.cast);
+  return resp.data.cast.filter(
+    (actor) => actor.profile_path && actor.character
+  );
 }
 
 export async function reviewsRequest(movieId) {
