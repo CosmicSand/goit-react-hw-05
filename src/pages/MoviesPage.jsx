@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { searchRequest } from "../requests";
-import MovieList from "../components/MoviesList/MoviesList";
+import MovieList from "../components/MovieList/MovieList";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 import Filter from "../components/Filter/Filter";

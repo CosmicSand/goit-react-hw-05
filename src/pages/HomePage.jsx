@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { filmListRequest } from "../requests";
-import MovieList from "../components/MoviesList/MoviesList";
+import MovieList from "../components/MovieList/MovieList";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 
