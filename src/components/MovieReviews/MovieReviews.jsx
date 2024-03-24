@@ -18,7 +18,7 @@ export default function MovieReviews() {
         setIsLoading(true);
         setErrorObj(null);
         const response = await reviewsRequest(movieID.current);
-        console.log(response);
+
         if (response.length === 0) {
           throw new Error("No reviews left.");
         }
@@ -36,7 +36,7 @@ export default function MovieReviews() {
   return (
     <>
       {isLoading && <Loader />}
-      {!isLoading && errorObj && <ErrorMessage error={errorObj} />}
+      {errorObj && <ErrorMessage error={errorObj} />}
       {!isLoading && (
         <ul className={css.list}>
           {reviews.map((review, i, reviewArray) => {
