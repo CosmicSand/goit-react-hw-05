@@ -30,7 +30,6 @@ export default function MoviesPage() {
         }
         setMovies(response);
       } catch (error) {
-        console.log(error);
         setErrorObj(error);
       } finally {
         setIsLoading(false);
@@ -45,7 +44,7 @@ export default function MoviesPage() {
     <main>
       <Filter submit={titleSetting} />
       {isLoading && <Loader />}
-      {errorObj && <ErrorMessage />}
+      {errorObj && <ErrorMessage error={errorObj} />}
       {!isLoading && !errorObj && <MovieList moviesArray={movies} />}
     </main>
   );

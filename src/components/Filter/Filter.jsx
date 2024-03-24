@@ -9,7 +9,6 @@ export default function Filter({ submit }) {
     e.preventDefault();
     const form = e.currentTarget;
     const title = e.target.search.value.trim().toLowerCase();
-    console.log(title);
     if (!title) return;
 
     submit(title);
