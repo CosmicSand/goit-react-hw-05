@@ -16,7 +16,7 @@ export default function MovieCast() {
         setIsLoading(true);
         const response = await creditsRequest(movieID);
 
-        setActors(response);
+        setActors(response.filter((actor, i) => i < 8));
       } catch (error) {
         console.log(error);
       } finally {

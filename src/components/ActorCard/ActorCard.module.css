@@ -15,10 +15,12 @@
   z-index: 1;
 }
 .description {
+  max-width: 150px;
   text-align: center;
   padding-top: 10px;
   font-size: 14px;
   color: #545454;
+  overflow: hidden;
 }
 
 .description > span {
