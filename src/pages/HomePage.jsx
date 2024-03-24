@@ -35,7 +35,7 @@ export default function HomePage() {
         today
       </h1>
       {isLoading && <Loader />}
-      {errorObj && <ErrorMessage />}
+      {errorObj && <ErrorMessage error={errorObj} />}
       {!isLoading && <MovieList moviesArray={moviesArray} />}
     </main>
   );
