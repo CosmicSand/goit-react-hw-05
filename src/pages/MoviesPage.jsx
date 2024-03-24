@@ -7,14 +7,12 @@ import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 import Filter from "../components/Filter/Filter";
 
 export default function MoviesPage() {
-  const [title, setTitle] = useState("");
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorObj, setErrorObj] = useState(null);
   const [params, setParams] = useSearchParams();
 
   function titleSetting(movieTitle) {
-    setTitle(movieTitle);
     params.append("query", `${movieTitle}`);
     params.set("query", `${movieTitle}`);
     setParams(params);
@@ -23,6 +21,7 @@ export default function MoviesPage() {
   useEffect(() => {
     async function handleSubmit() {
       try {
+        const title = params.get("query");
         setIsLoading(true);
         const response = await searchRequest(title);
         setMovies(response);
@@ -37,7 +36,7 @@ export default function MoviesPage() {
       }
     }
     handleSubmit();
-  }, [title]);
+  }, [params]);
 
   return (
     <main>
