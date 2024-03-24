@@ -1,10 +1,10 @@
 import { useState, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
+import Navigation from "../Navigation/Navigation";
 import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews";
 import css from "./App.module.css";
 
-const HeaderPage = lazy(() => import("../../pages/HeaderPage"));
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const MoviesPage = lazy(() => import("../../pages/MoviesPage"));
 const MovieDetailsPage = lazy(() => import("../../pages/MovieDetailsPage"));
@@ -23,9 +23,8 @@ function App() {
 
   return (
     <div className={css.container}>
-      <HeaderPage isScroll={isScroll} />
+      <Navigation isScroll={isScroll} />
       <Suspense>
-        {" "}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
