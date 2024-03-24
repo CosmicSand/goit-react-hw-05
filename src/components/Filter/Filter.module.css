@@ -32,7 +32,7 @@
 
 .btn:hover,
 .btn:focus {
-  outline: 2px solid #fe891c;
+  outline: 1px solid #fe891c;
   background-color: #000;
 }
 
