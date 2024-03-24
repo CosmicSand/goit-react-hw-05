@@ -25,7 +25,7 @@ export default function Filter({ submit }) {
           id={id}
           name="search"
           autoComplete="off"
-          pattern="[a-zA-Z0-9`\s'-]+"
+          pattern="[a-zA-Z0-9`\s'-:]+"
           required
           placeholder="Filter by title"
         />
