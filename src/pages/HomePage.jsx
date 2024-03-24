@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { filmListRequest } from "../requests";
-import MoviesList from "../components/MoviesList/MoviesList";
+import MovieList from "../components/MoviesList/MoviesList";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 
@@ -36,7 +36,7 @@ export default function HomePage() {
       </h1>
       {isLoading && <Loader />}
       {errorObj && <ErrorMessage />}
-      {!isLoading && <MoviesList moviesArray={moviesArray} />}
+      {!isLoading && <MovieList moviesArray={moviesArray} />}
     </main>
   );
 }
