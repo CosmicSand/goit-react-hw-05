@@ -6,12 +6,14 @@ import MovieCardGenre from "../MovieCardGenre/MovieCardGenre";
 import MovieCardOverview from "../MovieCardOverview/MovieCardOverview";
 import MovieCardImage from "../MovieCardImage/MovieCardImage";
 import Loader from "../Loader/Loader";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import css from "./MovieCard.module.css";
 
 export default function MovieCard() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [errorObj, setErrorObj] = useState(null);
   const location = useLocation();
   const backPath = useRef(location.state ?? "/");
 
@@ -20,9 +22,12 @@ export default function MovieCard() {
       try {
         setIsLoading(true);
         const response = await movieInfoRequest(movieId);
+        if (response.length === 0) {
+          throw new Error("No movie info :(");
+        }
         setMovie(response);
       } catch (error) {
-        console.log(error);
+        setErrorObj(error);
       } finally {
         setIsLoading(false);
       }
@@ -31,10 +36,10 @@ export default function MovieCard() {
     movieRequest();
   }, [movieId]);
 
-  console.log(location.state);
   return (
     <>
       {isLoading && <Loader />}
+      {errorObj && <ErrorMessage error={errorObj} />}
       {!isLoading && (
         <div>
           <div className={css.back}>

@@ -18,12 +18,11 @@ export default function MovieCast() {
         setIsLoading(true);
         const response = await creditsRequest(movieID);
         if (response.length === 0) {
-          throw new Error("No reviews left.");
+          throw new Error("No actor's list available.");
         }
         setActors(response.filter((actor, i) => i < 8));
       } catch (error) {
         setErrorObj(error);
-        console.log(error);
       } finally {
         setIsLoading(false);
       }
