@@ -1,0 +1,48 @@
+.form {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.inp {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding-left: 5px;
+  margin-right: 10px;
+  color: #454545;
+}
+
+.btn {
+  text-align: center;
+  padding: 0;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #454545;
+  color: #fe891c;
+}
+
+.btn:hover,
+.btn:focus {
+  outline: 2px solid #fe891c;
+  background-color: #000;
+}
+
+.inp:active,
+.inp:focus,
+.inp:hover {
+  border: 1px solid #fe891c;
+}
+
+.inp::placeholder {
+  color: #454545;
+  opacity: 0.5;
+}

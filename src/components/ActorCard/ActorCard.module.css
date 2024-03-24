@@ -1,0 +1,31 @@
+.imgCont {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 1px 1px 15px 4px rgba(54, 54, 54, 0.8),
+    inset 5px 10px 5px 5px rgba(54, 54, 54, 1);
+  filter: grayscale(0);
+}
+
+.imgCont img {
+  position: relative;
+  transform: translateY(-8%);
+  z-index: 1;
+}
+.description {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #545454;
+}
+
+.description > span {
+  font-weight: 700;
+  color: #fe891c;
+}
+
+/* .container {
+  display: flex;
+} */

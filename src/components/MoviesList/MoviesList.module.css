@@ -1,0 +1,30 @@
+.item {
+  max-width: 400px;
+  margin: 0 auto;
+  /* padding: 10px; */
+  border: 1px solid #ccc;
+  background-color: rgba(54, 54, 54, 0.9);
+  color: #fe891c;
+  transition: all 0.2 cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+.link {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  width: 100%;
+  color: #fe891c;
+  transition: all 0.2 cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+.link:hover,
+.link:focus {
+  background-color: #fe891c;
+  color: #545454;
+  outline: none;
+}
+
+.item:hover,
+.item:focus {
+  background-color: #fe891c;
+  color: #545454;
+}
