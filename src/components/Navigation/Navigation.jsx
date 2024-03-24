@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import ScrollBtn from "../components/ScrollBtn/ScrollBtn";
+import ScrollBtn from "../ScrollBtn/ScrollBtn";
 import clsx from "clsx";
 import css from "./Navigation.module.css";
 
