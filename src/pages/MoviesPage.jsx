@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { searchRequest } from "../requests";
 import MoviesList from "../components/MoviesList/MoviesList";
 import Loader from "../components/Loader/Loader";
@@ -10,9 +11,13 @@ export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorObj, setErrorObj] = useState(null);
+  const [params, setParams] = useSearchParams();
 
   function titleSetting(movieTitle) {
     setTitle(movieTitle);
+    params.append("query", `${movieTitle}`);
+    params.set("query", `${movieTitle}`);
+    setParams(params);
   }
 
   useEffect(() => {

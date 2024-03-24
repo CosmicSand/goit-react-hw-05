@@ -8,6 +8,7 @@ export default function Filter({ submit }) {
     e.preventDefault();
     const title = e.target.search.value;
     submit(title);
+
     e.currentTarget.reset();
   }
 
