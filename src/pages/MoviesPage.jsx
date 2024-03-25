@@ -21,6 +21,7 @@ export default function MoviesPage() {
     async function handleSubmit() {
       try {
         const title = params.get("query");
+        setErrorObj(false);
         setIsLoading(true);
         const response = await searchRequest(title);
 
