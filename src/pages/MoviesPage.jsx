@@ -13,7 +13,6 @@ export default function MoviesPage() {
   const [params, setParams] = useSearchParams();
 
   function titleSetting(movieTitle) {
-    params.append("query", `${movieTitle}`);
     params.set("query", `${movieTitle}`);
     setParams(params);
   }
