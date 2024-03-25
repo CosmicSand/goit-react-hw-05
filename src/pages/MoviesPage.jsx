@@ -25,7 +25,7 @@ export default function MoviesPage() {
         const response = await searchRequest(title);
 
         if (response.length === 0) {
-          throw new Error("Nothing found!");
+          throw new Error("Nothing found but you can try another movie title.");
         }
         setMovies(response);
       } catch (error) {

@@ -9,7 +9,7 @@ export default function Navigation({ isScroll }) {
   };
 
   return (
-    <header>
+    <header className={css.head}>
       <nav className={css.nav}>
         <NavLink to="/" className={classChanging}>
           Home
